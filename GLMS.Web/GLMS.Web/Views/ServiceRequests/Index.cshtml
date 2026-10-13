@@ -1,0 +1,108 @@
+﻿@model IEnumerable<GLMS.Web.Models.ServiceRequest>
+
+@{
+    ViewData["Title"] = "Service Requests";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h1 class="mb-0">Service Requests</h1>
+
+    <a asp-action="Create" class="btn btn-success">
+        Create New Request
+    </a>
+
+</div>
+
+<div class="card shadow-sm">
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+
+                        <th>
+                            Cost (ZAR)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </th>
+
+                        <th>
+                            Contract
+                        </th>
+
+                        <th style="width:220px;">
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+
+                            <td>
+                                R @item.Cost.ToString("N2")
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Status)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Contract.ServiceLevel)
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Edit"
+                                   asp-route-id="@item.ServiceRequestId"
+                                   class="btn btn-warning btn-sm">
+                                    Edit
+                                </a>
+
+                                <a asp-action="Details"
+                                   asp-route-id="@item.ServiceRequestId"
+                                   class="btn btn-primary btn-sm">
+                                    Details
+                                </a>
+
+                                <a asp-action="Delete"
+                                   asp-route-id="@item.ServiceRequestId"
+                                   class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

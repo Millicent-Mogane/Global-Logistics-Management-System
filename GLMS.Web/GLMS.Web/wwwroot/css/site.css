@@ -1,0 +1,81 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #f4f6f9;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+    .card:hover {
+        transform: translateY(-2px);
+        transition: 0.2s ease;
+    }
+
+.table {
+    background-color: white;
+}
+
+.btn {
+    border-radius: 8px;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+body {
+    background-color: #f4f6f9;
+}
+
+.container {
+    max-width: 1600px;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.btn {
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+}

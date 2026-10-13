@@ -1,0 +1,100 @@
+﻿@model GLMS.Web.Models.Client
+
+@{
+    ViewData["Title"] = "Edit Client";
+}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-7">
+
+        <div class="card shadow-sm">
+
+            <div class="card-header bg-warning">
+                <h3 class="mb-0">Edit Client</h3>
+            </div>
+
+            <div class="card-body">
+
+                <form asp-action="Edit">
+
+                    <div asp-validation-summary="ModelOnly"
+                         class="text-danger">
+                    </div>
+
+                    <input type="hidden" asp-for="ClientId" />
+
+                    <div class="mb-3">
+
+                        <label asp-for="Name"
+                               class="form-label">
+                        </label>
+
+                        <input asp-for="Name"
+                               class="form-control" />
+
+                        <span asp-validation-for="Name"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label asp-for="ContactDetails"
+                               class="form-label">
+                        </label>
+
+                        <input asp-for="ContactDetails"
+                               class="form-control" />
+
+                        <span asp-validation-for="ContactDetails"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label asp-for="Region"
+                               class="form-label">
+                        </label>
+
+                        <input asp-for="Region"
+                               class="form-control" />
+
+                        <span asp-validation-for="Region"
+                              class="text-danger">
+                        </span>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <button type="submit"
+                                class="btn btn-success">
+                            Save Changes
+                        </button>
+
+                        <a asp-action="Index"
+                           class="btn btn-secondary">
+                            Back to List
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

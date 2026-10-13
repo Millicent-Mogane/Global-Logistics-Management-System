@@ -1,0 +1,216 @@
+﻿@model GLMS.Web.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="p-5 mb-4 text-white rounded shadow"
+     style="background: linear-gradient(135deg,#0f172a,#1e3a8a);">
+
+    <div class="container-fluid py-3">
+
+        <h1 class="display-4 fw-bold">
+            Global Logistics Management System
+        </h1>
+
+        <p class="lead">
+            Enterprise platform for managing clients, contracts,
+            agreements and service requests.
+        </p>
+
+        <hr class="border-light" />
+
+        <div class="mt-4">
+            <a asp-controller="Clients"
+               asp-action="Index"
+               class="btn btn-primary btn-lg me-2">
+                Clients
+            </a>
+
+            <a asp-controller="Contracts"
+               asp-action="Index"
+               class="btn btn-success btn-lg me-2">
+                Contracts
+            </a>
+
+            <a asp-controller="ServiceRequests"
+               asp-action="Index"
+               class="btn btn-warning btn-lg">
+                Service Requests
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow text-center border-primary h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Clients</h6>
+                <h2 class="text-primary fw-bold">
+                    @Model.TotalClients
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow text-center border-success h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Total Contracts</h6>
+                <h2 class="text-success fw-bold">
+                    @Model.TotalContracts
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow text-center border-warning h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Active Contracts</h6>
+                <h2 class="text-warning fw-bold">
+                    @Model.ActiveContracts
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card shadow text-center border-danger h-100">
+            <div class="card-body">
+                <h6 class="text-muted">Service Requests</h6>
+                <h2 class="text-danger fw-bold">
+                    @Model.TotalServiceRequests
+                </h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="card shadow text-center border-primary h-100">
+            <div class="card-body">
+                <h5 class="text-primary">Client Management</h5>
+                <p>
+                    Manage client profiles and contact information.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow text-center border-success h-100">
+            <div class="card-body">
+                <h5 class="text-success">Contract Management</h5>
+                <p>
+                    Track contract lifecycle and status updates.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow text-center border-warning h-100">
+            <div class="card-body">
+                <h5 class="text-warning">PDF Agreements</h5>
+                <p>
+                    Upload and download signed agreement documents.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow text-center border-danger h-100">
+            <div class="card-body">
+                <h5 class="text-danger">Currency Conversion</h5>
+                <p>
+                    Convert service request costs from USD to ZAR.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card shadow mb-4">
+
+    <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">
+            Business Workflow
+        </h4>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row text-center">
+
+            <div class="col-md-4">
+                <h5>1. Clients</h5>
+                <p>
+                    Register and maintain client records.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>2. Contracts</h5>
+                <p>
+                    Create contracts and upload signed agreements.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h5>3. Service Requests</h5>
+                <p>
+                    Log requests and track operational costs.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card shadow">
+
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">
+            System Features
+        </h4>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <ul>
+                    <li>Client Management</li>
+                    <li>Contract Management</li>
+                    <li>PDF Agreement Upload</li>
+                    <li>PDF Agreement Download</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <ul>
+                    <li>Service Request Tracking</li>
+                    <li>USD to ZAR Currency Conversion</li>
+                    <li>Contract Status Validation</li>
+                    <li>Search and Filter Functionality</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
