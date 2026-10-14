@@ -22,7 +22,10 @@ namespace GLMS.Web.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clients.ToListAsync());
+            return View(
+                await _context.Clients
+                    .OrderByDescending(c => c.ClientId)
+                    .ToListAsync());
         }
 
         // GET: Clients/Details/5

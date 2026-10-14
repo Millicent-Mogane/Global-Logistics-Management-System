@@ -28,8 +28,9 @@ namespace GLMS.Web.Controllers
             DateTime? endDate)
         {
             var contracts = _context.Contracts
-                .Include(c => c.Client)
-                .AsQueryable();
+    .Include(c => c.Client)
+    .OrderByDescending(c => c.ContractId)
+    .AsQueryable();
 
             if (!string.IsNullOrEmpty(statusFilter))
             {

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GLMS.Web.Data;
 using GLMS.Web.Models;
 using GLMS.Web.Services;
+using GLMS.Web.Factories;
 
 namespace GLMS.Web.Controllers
 {
@@ -27,7 +28,10 @@ namespace GLMS.Web.Controllers
         // GET: ServiceRequests
         public async Task<IActionResult> Index()
         {
-            var gLMSDbContext = _context.ServiceRequests.Include(s => s.Contract);
+            var gLMSDbContext = _context.ServiceRequests
+                .Include(s => s.Contract)
+                .OrderByDescending(s => s.ServiceRequestId);
+
             return View(await gLMSDbContext.ToListAsync());
         }
 
@@ -119,7 +123,15 @@ namespace GLMS.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Add(serviceRequest);
+                var request = ServiceRequestFactory.Create(
+                    serviceRequest.Description,
+                    serviceRequest.UsdAmount,
+                    serviceRequest.Cost,
+                    serviceRequest.Status,
+                    serviceRequest.ContractId);
+
+                _context.Add(request);
+
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
